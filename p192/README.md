@@ -79,8 +79,6 @@ type when the input is expected to be specifically SPKI.
 
 ```rust
 # fn main() -> Result<(), Box<dyn std::error::Error>> {
-# #[cfg(feature = "pem")]
-# {
 use p192::elliptic_curve::PublicKey;
 use p192::NistP192;
 use p192::pkcs8::DecodePublicKey;
@@ -91,8 +89,8 @@ MEkwEwYHKoZIzj0CAQYIKoZIzj0DAQEDMgAE/xW9cn1Y25+dj7qzy7gvirEF+jIV
 O0h4q4osrY+F1QFz7XIjwEuHQ6+GyiY9n1t1
 -----END PUBLIC KEY-----"#;
 let public_key = PublicKey::<NistP192>::from_public_key_pem(pem)?;
-# let _ = public_key;
-# }
+
+let _ = public_key;
 # Ok(())
 # }
 ```
